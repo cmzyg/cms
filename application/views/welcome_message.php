@@ -69,9 +69,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
+	<h1><?php echo $welcome_message; ?></h1>
+
 
 	<div id="body">
+		<h3>Encoded message is: <strong><?php echo $encoded_message; ?></strong></h3>
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
 
 		<p>If you would like to edit this page you'll find it located at:</p>
