@@ -13,7 +13,14 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$data['page_info'] = $this->WelcomeModel->get_page(1);  
+		$data['page_info'] = $this->WelcomeModel->get_page(1);
+
+		if($data['page_info']['page_status'] == 'inactive')
+		{
+			redirect('404');
+			exit;
+		}
+
 		$this->load->view('layout/header', $data);
 		$this->load->view('welcome_message', $data);
 		$this->load->view('layout/footer');

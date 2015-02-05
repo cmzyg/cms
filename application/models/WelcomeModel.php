@@ -24,6 +24,7 @@ class WelcomeModel extends CI_Model {
         	$page_info['page_author']      = $row['page_author'];
         	$page_info['meta_description'] = $row['meta_description'];
         	$page_info['meta_keywords']    = $row['meta_keywords'];
+        	$page_info['page_status']      = $row['page_status'];
         }
 
         return $page_info;
