@@ -1,3 +1,2 @@
-<br />
-this is footer
-<br /><br />
+</body>
+</html>

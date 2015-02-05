@@ -19,9 +19,11 @@ class WelcomeModel extends CI_Model {
 		$query  = $this->db->query("SELECT * FROM cms_pages WHERE page_id = '$page_id'");
         foreach($query->result_array() as $row)
         {
-        	$page_info['page_title']   = $row['page_title'];
-        	$page_info['page_content'] = $row['page_content'];
-        	$page_info['page_author']  = $row['page_author'];
+        	$page_info['page_title']       = $row['page_title'];
+        	$page_info['page_content']     = $row['page_content'];
+        	$page_info['page_author']      = $row['page_author'];
+        	$page_info['meta_description'] = $row['meta_description'];
+        	$page_info['meta_keywords']    = $row['meta_keywords'];
         }
 
         return $page_info;
