@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
+	protected $page_id = 1;
+
 	function __construct()
 	{
 		parent::__construct();
@@ -11,13 +13,21 @@ class Welcome extends CI_Controller {
 	}
 
 
+    /* this is the main method of the homepage controller
+    *  loads up the model which looks into the database
+    *  and then stores found values in variables, then
+    *  passes thoses values to view
+    *  @return mixed 
+    */
+
 	public function index()
 	{
-		$data['page_info'] = $this->WelcomeModel->get_page(1);
+		$data['page_info'] = $this->WelcomeModel->get_page($this->page_id);
 
 		if($data['page_info']['page_status'] == 'inactive')
 		{
-			redirect('404');
+			log_message('debug', 'Some variable did not contain a value.');
+			show_404();
 			exit;
 		}
 
