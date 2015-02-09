@@ -188,7 +188,7 @@
 <div id="t-header" class="row">
   <div class="four columns">
   	
-    <div id="logo"><a href="http://321cart.com/oxy/index.php?route=common/home"><img src="http://321cart.com/oxy/image/data/logo_2_oxy_5.png" title="OXY" alt="OXY" /></a></div>
+    <div id="logo"><a href="http://321cart.com/oxy/index.php?route=common/home"><img src="<?php echo base_url(); ?>assets/img/logo/<?php echo $logo; ?>" title="OXY" alt="OXY" /></a></div>
        
   </div>
   
@@ -204,7 +204,7 @@
   <div id="cart">
   <div class="heading">
     <h5>Shopping Cart</h5>
-    <a><div id="cart-icon">&nbsp;</div><div id="cart-total">0 item(s) - $0.00</div> </a></div>
+    <a><div id="cart-icon">&nbsp;</div><div id="cart-total"><?php echo $cart['qty']; ?> item(s) - $0.00</div> </a></div>
   <div class="content">
         <div class="empty">Your shopping cart is empty!</div>
       </div>
@@ -1413,21 +1413,23 @@
 <div class="products-slider box-content">       
 <div class="product-box-slider-flexslider products-slider-slides">       
    <ul class="slides">
+   	<?php foreach($products as $row) { ?>
      
     <li>
-                <div class="image">
+        <div class="image">
         <span class="sale-icon">Sale</span> 
-        <a href="http://321cart.com/oxy/index.php?route=product/product&amp;product_id=51"><img oversrc="http://321cart.com/oxy/image/cache/data/products_electronics/canon_sx40_4b-300x400.jpg" src="http://321cart.com/oxy/image/cache/data/products_electronics/canon_sx40_1b-300x400.jpg" alt="Sample Camera" /></a>
+        <a href="<?php echo base_url(); ?>product/<?php echo $row['product_id']; ?>"><img oversrc="http://321cart.com/oxy/image/cache/data/products_electronics/canon_sx40_4b-300x400.jpg" src="<?php echo base_url(); ?>/assets/img/products/<?php echo $row['product_picture']; ?>" alt="Sample Camera" /></a>
         </div>
          
         <div class="name"><a href="http://321cart.com/oxy/index.php?route=product/product&amp;product_id=51">Sample Camera</a></div>
                 <div class="rating"><img src="<?php echo base_url(); ?>assets/img/stars1-4.png" alt="Based on 3 reviews." /></div>
           
                 <div class="price">
-                    <span class="price-new">$739.00</span> <span class="price-old">$799.00</span>
+                    <span class="price-new">&pound;<?php echo $row['product_price']; ?></span> <span class="price-old">$799.00</span>
                   </div>
                 <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('51');" class="button" /></div>
     </li>
+    <?php } ?>
      
     <li>
                 <div class="image">

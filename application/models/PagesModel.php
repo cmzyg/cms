@@ -33,7 +33,6 @@ class PagesModel extends CI_Model {
 
 	public function get_navigation()
 	{
-		$navigation_item = array();
 		$query = $this->db->query("SELECT * FROM cms_pages WHERE in_menu = 1");
 		return $query->result_array();
 	}
@@ -41,7 +40,7 @@ class PagesModel extends CI_Model {
 	public function get_slider()
 	{
 		$slider = array();
-        $query  = $this->db->query("SELECT * FROM cms_sliders WHERE status = 'active'");
+		$query  = $this->db->query("SELECT * FROM cms_sliders WHERE status = 'active'");
         foreach($query->result_array() as $row)
         {
         	$slider['status']    = $row['status'];
@@ -52,10 +51,25 @@ class PagesModel extends CI_Model {
         return $slider;
 	}
 
+	public function get_logo()
+	{
+		$query = $this->db->query("SELECT logo_url FROM cms_design");
+		$row   = $query->row();
+		
+		return $row->logo_url;
+	}
+
 	public function increment_view_count($page_url)
 	{
 		$this->db->query("UPDATE cms_pages_stats SET view_count = view_count + 1 WHERE page_url = '$page_url'");
 		return true;
+	}
+
+	public function get_products()
+	{
+		$product = array();
+		$query = $this->db->query("SELECT * FROM cms_products");
+	    return $query->result_array();
 	}
 
 }
