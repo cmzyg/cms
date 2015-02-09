@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class PagesController extends CI_Controller {
+class ProductsController extends CI_Controller {
 
 	protected $page_id = 1;
 
@@ -15,9 +15,10 @@ class PagesController extends CI_Controller {
 		$this->load->library('session');
 	}
 
-	public function index($id = 1)
+	public function index()
 	{
-		$data['products'] = $this->PagesModel->get_products();
+		$product_id = $this->uri->segment(2);
+		$data['products'] = $this->PagesModel->get_product_by_id($product_id);
 
 	    $this->load->view('layout/header', $data);
 	    $this->load->view('layout/content', $data);

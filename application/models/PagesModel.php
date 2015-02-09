@@ -72,4 +72,11 @@ class PagesModel extends CI_Model {
 	    return $query->result_array();
 	}
 
+	public function get_product_by_id($id)
+	{
+		$query   = $this->db->query("SELECT * FROM cms_products");
+	    $product = $query->result_array();
+	    return $product;
+	}
+
 }
