@@ -53,4 +53,6 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['testing'] = 'Welcome/testAction';
+$route['default_controller'] = 'PagesController/view';
+$route['(:any)']             = 'PagesController/view/$1';
+$route['index']              = 'HomepageController/index';

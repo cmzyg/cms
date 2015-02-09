@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class HomepageController extends CI_Controller {
 
 	protected $page_id = 1;
 
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('WelcomeModel');
+		$this->load->model('HomepageModel');
 		$this->load->helper('url');
 		$this->load->helper('file');
 	}
@@ -23,7 +23,8 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$data['page_info'] = $this->WelcomeModel->get_page($this->page_id);
+		$data['page_info']  = $this->HomepageModel->get_page($this->page_id);
+		$data['navigation'] = $this->HomepageModel->get_navigation();
 
 		if($data['page_info']['page_status'] == 'inactive')
 		{
@@ -31,10 +32,6 @@ class Welcome extends CI_Controller {
 			show_404();
 			exit;
 		}
-
-		write_file(APPPATH . 'cache/' . $data['page_info']['page_url'] . '.php', $data['page_info']['page_content']);
-		delete_files(APPPATH . 'cache/');
-
 
 		$this->load->view('layout/header', $data);
 		$this->load->view('welcome_message', $data);

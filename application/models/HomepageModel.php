@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class WelcomeModel extends CI_Model {
+class HomepageModel extends CI_Model {
 
 	function __construct()
 	{
@@ -16,7 +16,7 @@ class WelcomeModel extends CI_Model {
 	public function get_page($page_id)
 	{
 		$page_info = array();
-		$query  = $this->db->query("SELECT * FROM cms_pages WHERE page_id = '$page_id'");
+		$query = $this->db->query("SELECT * FROM cms_pages WHERE page_id = '$page_id'");
         foreach($query->result_array() as $row)
         {
         	$page_info['page_title']       = $row['page_title'];
@@ -29,6 +29,13 @@ class WelcomeModel extends CI_Model {
         }
 
         return $page_info;
+	}
+
+	public function get_navigation()
+	{
+		$navigation_item = array();
+		$query = $this->db->query("SELECT * FROM cms_pages WHERE in_menu = 1");
+		return $query->result_array();
 	}
 
 }
