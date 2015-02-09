@@ -38,7 +38,7 @@ class PagesController extends CI_Controller {
 	    }
 
 	    $this->load->view('layout/header', $data);
-	    $this->load->view('layout/content', $data);
+	    $this->load->view('layout/content');
 	    $this->load->view('layout/footer');
     }
 

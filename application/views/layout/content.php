@@ -1421,7 +1421,7 @@
         <a href="<?php echo base_url(); ?>product/<?php echo $row['product_id']; ?>"><img oversrc="http://321cart.com/oxy/image/cache/data/products_electronics/canon_sx40_4b-300x400.jpg" src="<?php echo base_url(); ?>/assets/img/products/<?php echo $row['product_picture']; ?>" alt="Sample Camera" /></a>
         </div>
          
-        <div class="name"><a href="http://321cart.com/oxy/index.php?route=product/product&amp;product_id=51">Sample Camera</a></div>
+        <div class="name"><a href="<?php echo base_url(); ?>product/<?php echo $row['product_id']; ?>"><?php echo $row['product_name']; ?></a></div>
                 <div class="rating"><img src="<?php echo base_url(); ?>assets/img/stars1-4.png" alt="Based on 3 reviews." /></div>
           
                 <div class="price">
