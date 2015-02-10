@@ -59,6 +59,14 @@ class PagesModel extends CI_Model {
 		return $row->logo_url;
 	}
 
+	public function get_background()
+	{
+		$query = $this->db->query("SELECT background FROM cms_design");
+		$row   = $query->row();
+
+		return $row->background;
+	}
+
 	public function increment_view_count($page_url)
 	{
 		$this->db->query("UPDATE cms_pages_stats SET view_count = view_count + 1 WHERE page_url = '$page_url'");

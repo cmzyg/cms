@@ -24,9 +24,11 @@ class PagesController extends CI_Controller {
 	    	show_404();
 	    }
 
-	    $data['slider']   = $this->PagesModel->get_slider();
-	    $data['logo']     = $this->PagesModel->get_logo();
-	    $data['products'] = $this->PagesModel->get_products();
+        // getting visual stuff from the database
+	    $data['slider']     = $this->PagesModel->get_slider();
+	    $data['logo']       = $this->PagesModel->get_logo();
+	    $data['products']   = $this->PagesModel->get_products();
+	    $data['background'] = $this->PagesModel->get_background();
 
         // add +1 to views
 	    $this->PagesModel->increment_view_count($page);

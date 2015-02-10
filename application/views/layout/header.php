@@ -62,7 +62,7 @@ DD_belatedPNG.fix('#logo img');
 /*  Body background color and pattern  */
 body {
 	background-color: #F6F6F6;
-	background-image: url("<?php echo base_url(); ?>assets/img/main_bg_5.jpg"); ?>;
+	background-image: url("<?php echo base_url(); ?>assets/img/<?php echo $background; ?>"); ?>;
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-attachment: scroll;
