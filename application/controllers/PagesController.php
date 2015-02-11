@@ -10,14 +10,17 @@ class PagesController extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->helper('file');
+		$this->load->helper('download');
 		$this->load->model('PagesModel');
 		$this->load->library('cart');
 		$this->load->library('session');
+		$this->lang->load('homepage', 'lithuanian');
 	}
 
     public function view($page = 'home')
     {
 	    $data['page_info'] = $this->PagesModel->get_page($page);
+	    echo $this->lang->line('welcome_message'); die;
 
 	    if($data['page_info'] == NULL)
 	    {
@@ -38,6 +41,8 @@ class PagesController extends CI_Controller {
 	    {
 	    	$data['cart'] = $this->set_cart();
 	    }
+
+	    // force_download('text.txt', 'testas');
 
 	    $this->load->view('layout/header', $data);
 	    $this->load->view('layout/content');
