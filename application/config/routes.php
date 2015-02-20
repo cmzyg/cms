@@ -56,5 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['default_controller'] = 'PagesController/view';
 $route['(:any)']             = 'PagesController/view/$1';
 $route['index']              = 'HomepageController/index';
-//$route['product/:num']       = 'ProductsController/index';
+$route['product/:num']       = 'ProductsController/index';
  
